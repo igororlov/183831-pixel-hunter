@@ -34,7 +34,7 @@ switchScreen(currentScreen);
 
 // Добавить обработчик клавиатурных событий на document, который будет
 // по нажатию на комбинации Alt + ← и Alt + → переключать экраны на следующий и предыдущий соответственно (TODO может, наоборот?)
-document.addEventListener(`keypress`, function (evt) {
+document.addEventListener(`keydown`, function (evt) {
   if (evt.altKey && (evt.code === "ArrowRight" || evt.code === "ArrowLeft")) {
     // Шаг влево / вправо в зависимости от нажатой стрелки
     if (evt.code === "ArrowLeft") {
