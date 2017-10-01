@@ -2,19 +2,13 @@
 
 // Последовательность экранов согласно ТЗ
 const screens = [
-  `greeting`,
-  `rules`,
-  `game-1`,
-  `game-2`,
-  `game-3`,
-  `stats`
+  document.getElementById(`greeting`),
+  document.getElementById(`rules`),
+  document.getElementById(`game-1`),
+  document.getElementById(`game-2`),
+  document.getElementById(`game-3`),
+  document.getElementById(`stats`)
 ];
-// Сложить шаблоны в map по id, чтобы не зависеть от порядка в HTML
-const templatesMap = {};
-const templates = Array.from(document.querySelectorAll(`template`));
-templates.forEach(function (template) {
-  templatesMap[template.id] = template;
-});
 
 // По переданному номеру показывать экран из массива, созданного в прошлом задании
 // Все содержимое шаблона, описывающего экран приложения, должно заменять содержимое блока main.central
@@ -23,9 +17,7 @@ function switchScreen(n) {
   // Очистить main
   mainElement.innerHTML = ``;
   // Найти шаблон и вставить содержимое
-  const currentScreenId = screens[n];
-  const template = templatesMap[currentScreenId];
-  mainElement.appendChild(template.content.cloneNode(true));
+  mainElement.appendChild(screens[n].content.cloneNode(true));
 }
 
 // Покажите первый экран приложения
@@ -38,16 +30,13 @@ document.addEventListener(`keydown`, function (evt) {
   if (evt.altKey && (evt.code === "ArrowRight" || evt.code === "ArrowLeft")) {
     // Шаг влево / вправо в зависимости от нажатой стрелки
     if (evt.code === "ArrowLeft") {
-      currentScreen--;
-    } else {
+      if (currentScreen > 0) {
+        currentScreen--;
+      }
+    } else if (currentScreen < screens.length - 1) {
       currentScreen++;
     }
-    // Убедиться что currentScreen в пределах от 0 до screens.length
-    if (currentScreen < 0) {
-      currentScreen += screens.length;
-    } else {
-      currentScreen = currentScreen % screens.length;
-    }
+
     // Переключить экран
     switchScreen(currentScreen);
   }
