@@ -13,12 +13,12 @@ const screens = [
 // По переданному номеру показывать экран из массива, созданного в прошлом задании
 // Все содержимое шаблона, описывающего экран приложения, должно заменять содержимое блока main.central
 const mainElement = document.querySelector(`main.central`);
-function switchScreen(n) {
+const switchScreen = (n) => {
   // Очистить main
   mainElement.innerHTML = ``;
   // Найти шаблон и вставить содержимое
   mainElement.appendChild(screens[n].content.cloneNode(true));
-}
+};
 
 // Покажите первый экран приложения
 let currentScreen = 0;
@@ -26,7 +26,7 @@ switchScreen(currentScreen);
 
 // Добавить обработчик клавиатурных событий на document, который будет
 // по нажатию на комбинации Alt + ← и Alt + → переключать экраны на следующий и предыдущий соответственно (TODO может, наоборот?)
-document.addEventListener(`keydown`, function (evt) {
+document.addEventListener(`keydown`, (evt) => {
   if (evt.altKey && (evt.code === "ArrowRight" || evt.code === "ArrowLeft")) {
     // Шаг влево / вправо в зависимости от нажатой стрелки
     if (evt.code === "ArrowLeft") {
@@ -41,3 +41,6 @@ document.addEventListener(`keydown`, function (evt) {
     switchScreen(currentScreen);
   }
 });
+
+// TODO:
+// => func
