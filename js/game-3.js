@@ -65,8 +65,8 @@ backButton.addEventListener(`click`, () => {
 
 // TODO why not working in Firefox?
 const answers = gameScreen.querySelectorAll(`.game__option`);
-answers.forEach((answer) => {
-  answer.addEventListener(`click`, () => switchScreen(stats));
+Array.from(answers).forEach((answer) => {
+  answer.addEventListener(`click`, (() => switchScreen(stats)), true, true); // TODO check in FF
 });
 
 export default gameScreen;

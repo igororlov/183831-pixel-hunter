@@ -85,7 +85,7 @@ const checkAnswers = () => {
 };
 
 const answers = gameScreen.querySelectorAll(`.game__answer`);
-answers.forEach((answer) => {
+Array.from(answers).forEach((answer) => {
   answer.addEventListener(`click`, checkAnswers);
 });
 
