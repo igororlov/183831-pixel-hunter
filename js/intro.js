@@ -22,7 +22,7 @@ const introScreen = getElementFromTemplate(`
 `);
 
 const asterisk = introScreen.querySelector(`.intro__asterisk`);
-asterisk.addEventListener(`click`, (evt) => {
+asterisk.addEventListener(`click`, () => {
   switchScreen(greeting);
 });
 

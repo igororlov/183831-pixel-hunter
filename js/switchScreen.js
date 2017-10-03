@@ -2,7 +2,9 @@ const mainElement = document.querySelector(`main.central`);
 
 export default (screenElement) => {
   // Очистить main
-  mainElement.innerHTML = ``;
+  while (mainElement.firstChild) {
+    mainElement.removeChild(mainElement.firstChild);
+  }
   // Найти шаблон и вставить содержимое
   mainElement.appendChild(screenElement);
 };
