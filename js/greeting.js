@@ -28,7 +28,7 @@ const greetingScreen = getElementFromTemplate(`
 </footer>`);
 
 const asterisk = greetingScreen.querySelector(`.greeting__continue`);
-asterisk.addEventListener(`click`, (evt) => {
+asterisk.addEventListener(`click`, () => {
   switchScreen(rules);
 });
 

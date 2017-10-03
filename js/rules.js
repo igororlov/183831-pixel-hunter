@@ -45,12 +45,12 @@ backButton.addEventListener(`click`, () => {
 });
 
 const rulesButton = rulesScreen.querySelector(`.rules__button`);
-rulesButton.addEventListener(`click`, (evt) => {
+rulesButton.addEventListener(`click`, () => {
   switchScreen(game1);
 });
 
 const nameInput = rulesScreen.querySelector(`.rules__input`);
-nameInput.addEventListener(`input`, (evt) => {
+nameInput.addEventListener(`input`, () => {
   rulesButton.disabled = !nameInput.value;
 });
 
