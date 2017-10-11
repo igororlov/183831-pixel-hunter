@@ -53,21 +53,3 @@ describe(`Calculate Game Points: `, () => {
     });
   });
 });
-
-describe(`Incorrect input`, () => {
-  it(`should throw an error when incorrect input`, () => {
-    assert.throws(() => {
-      calculateGamePoints([
-        answerCode.CORRECT,
-        `invalid code`,
-        answerCode.CORRECT,
-        answerCode.CORRECT,
-        answerCode.CORRECT,
-        answerCode.CORRECT,
-        answerCode.CORRECT,
-        answerCode.WRONG,
-        answerCode.WRONG,
-        answerCode.WRONG]);
-    }, Error, `I throw an error`);
-  });
-});
