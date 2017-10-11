@@ -1,28 +1,73 @@
 import assert from 'assert';
+import answerCode from './answerCode';
 import calculateGamePoints from './calculateGamePoints';
 
 describe(`Calculate Game Points: `, () => {
   describe(`Game lost`, () => {
     it(`should return -1 when less than 10 answers`, () => {
-      assert.equal(-1, calculateGamePoints([`fail`, `fail`, `fail`]));
+      assert.equal(-1, calculateGamePoints([answerCode.TIMEOUT, answerCode.TIMEOUT, answerCode.WRONG]));
     });
 
     it(`should return -1 when no remaining lives`, () => {
-      assert.equal(-1, calculateGamePoints([`normal`, `normal`, `normal`, `normal`, `normal`, `normal`, `normal`, `fail`, `fail`, `fail`]));
+      assert.equal(-1, calculateGamePoints([
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.WRONG,
+        answerCode.WRONG,
+        answerCode.WRONG]));
     });
   });
 
   describe(`Game results`, () => {
     it(`should return 1150 when all normal answers and all lives`, () => {
-      assert.equal(1150, calculateGamePoints([`normal`, `normal`, `normal`, `normal`, `normal`, `normal`, `normal`, `normal`, `normal`, `normal`]));
+      assert.equal(1150, calculateGamePoints([
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT]));
+    });
+
+    it(`should return 1000 when 3 fast answers, 3 slow, 3 normal and one timeout`, () => {
+      assert.equal(1000, calculateGamePoints([
+        answerCode.FAST,
+        answerCode.FAST,
+        answerCode.FAST,
+        answerCode.SLOW,
+        answerCode.SLOW,
+        answerCode.SLOW,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.TIMEOUT]));
     });
   });
 });
 
 describe(`Incorrect input`, () => {
-  it(`should throw an error when more than 10 answers`, () => {
+  it(`should throw an error when incorrect input`, () => {
     assert.throws(() => {
-      calculateGamePoints([`normal`, `BAZUKA`, `normal`, `normal`, `normal`, `normal`, `normal`, `fail`, `fail`, `fail`]);
-    }, Error, `I throw`);
+      calculateGamePoints([
+        answerCode.CORRECT,
+        `invalid code`,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.CORRECT,
+        answerCode.WRONG,
+        answerCode.WRONG,
+        answerCode.WRONG]);
+    }, Error, `I throw an error`);
   });
 });

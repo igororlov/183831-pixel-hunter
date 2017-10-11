@@ -1,3 +1,5 @@
+import answerCode from './answerCode';
+
 export default (answers) => {
   if (answers.length < 10) {
     return -1;
@@ -6,16 +8,17 @@ export default (answers) => {
   let points = 0;
   for (const answer of answers) {
     switch (answer) {
-      case `fail`:
+      case answerCode.TIMEOUT:
+      case answerCode.WRONG:
         remainingLives--;
         break;
-      case `slow`:
+      case answerCode.SLOW:
         points += 50;
         break;
-      case `fast`:
+      case answerCode.FAST:
         points += 150;
         break;
-      case `normal`:
+      case answerCode.CORRECT:
         points += 100;
         break;
       default:
