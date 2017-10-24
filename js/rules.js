@@ -1,17 +1,12 @@
 import getElementFromTemplate from './getElementFromTemplate';
 import switchScreen from './switchScreen';
-import greeting from './greeting';
-import game1 from './game-1';
+// import game1 from './game-1';
+import getHeader from './header';
+import footer from './footer';
+import renderGame from './renderGame';
+import getGame from './game';
 
-const rulesScreen = getElementFromTemplate(`
-<header class="header">
-  <div class="header__back">
-    <button class="back">
-      <img src="img/arrow_left.svg" width="45" height="45" alt="Back">
-      <img src="img/logo_small.svg" width="101" height="44">
-    </button>
-  </div>
-</header>
+const rulesTemplate = `
 <div class="rules">
   <h1 class="rules__title">Правила</h1>
   <p class="rules__description">Угадай 10 раз для каждого изображения фото <img
@@ -27,31 +22,25 @@ const rulesScreen = getElementFromTemplate(`
     <input class="rules__input" type="text" placeholder="Ваше Имя">
     <button class="rules__button  continue" type="submit" disabled>Go!</button>
   </form>
-</div>
-<footer class="footer">
-  <a href="https://htmlacademy.ru" class="social-link social-link--academy">HTML Academy</a>
-  <span class="footer__made-in">Сделано в <a href="https://htmlacademy.ru" class="footer__link">HTML Academy</a> &copy; 2016</span>
-  <div class="footer__social-links">
-    <a href="https://twitter.com/htmlacademy_ru" class="social-link  social-link--tw">Твиттер</a>
-    <a href="https://www.instagram.com/htmlacademy/" class="social-link  social-link--ins">Инстаграм</a>
-    <a href="https://www.facebook.com/htmlacademy" class="social-link  social-link--fb">Фэйсбук</a>
-    <a href="https://vk.com/htmlacademy" class="social-link  social-link--vk">Вконтакте</a>
-  </div>
-</footer>`);
+</div>`;
 
-const backButton = rulesScreen.querySelector(`.header__back`);
-backButton.addEventListener(`click`, () => {
-  switchScreen(greeting);
-});
+const rulesScreen = getElementFromTemplate(`
+${rulesTemplate}
+${footer}`);
+
+rulesScreen.insertBefore(getHeader(), rulesScreen.firstChild);
 
 const rulesButton = rulesScreen.querySelector(`.rules__button`);
-rulesButton.addEventListener(`click`, () => {
-  switchScreen(game1);
-});
-
 const nameInput = rulesScreen.querySelector(`.rules__input`);
 nameInput.addEventListener(`input`, () => {
   rulesButton.disabled = !nameInput.value;
+});
+
+rulesButton.addEventListener(`click`, (e) => {
+  // switchScreen(game1);
+  e.preventDefault();
+  nameInput.value = null;
+  switchScreen(renderGame(getGame(nameInput.value)));
 });
 
 export default rulesScreen;
