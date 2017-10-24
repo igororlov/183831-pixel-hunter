@@ -30,7 +30,6 @@ export default (question, onAnswer) => {
   Array.from(answers).forEach((answer) => {
     answer.addEventListener(`click`, (e) => {
       const checkedOption = gameScreen.querySelector('input[name=question1]:checked');
-      console.log('on answer click in renderOneImageGame question:', question, 'evt:', e, checkedOption.value, question);
       onAnswer(checkedOption.value === question.correctAnswer);
     });
   });

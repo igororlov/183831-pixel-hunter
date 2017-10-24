@@ -37,7 +37,6 @@ export default (question, onAnswer) => {
   const checkAnswers = (e) => {
     const checkedAnswer1 = gameScreen.querySelector(`input[name="question1"]:checked`);
     const checkedAnswer2 = gameScreen.querySelector(`input[name="question2"]:checked`);
-    console.log('in checkAnswers', checkedAnswer1, checkedAnswer2, e);
     if (checkedAnswer1 && checkedAnswer2) {
       onAnswer(true);
     }

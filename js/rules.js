@@ -1,10 +1,9 @@
 import getElementFromTemplate from './getElementFromTemplate';
 import switchScreen from './switchScreen';
-// import game1 from './game-1';
 import getHeader from './header';
 import footer from './footer';
-import renderGame from './renderGame';
-import getGame from './game';
+import renderGame from './game';
+import getGame from './state';
 
 const rulesTemplate = `
 <div class="rules">
