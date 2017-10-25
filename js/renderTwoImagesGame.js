@@ -3,8 +3,6 @@ import footer from './footer';
 
 export default (question, onAnswer) => {
 
-  console.log('in renderTwoImagesGame, question:', question);
-
   let gameOptions = [];
   question.images.forEach((image, idx) => {
     const optionIdx = idx + 1;
@@ -34,7 +32,7 @@ export default (question, onAnswer) => {
   const gameScreen = getElementFromTemplate(template);
 
   // TODO add listeners
-  const checkAnswers = (e) => {
+  const checkAnswers = () => {
     const checkedAnswer1 = gameScreen.querySelector(`input[name="question1"]:checked`);
     const checkedAnswer2 = gameScreen.querySelector(`input[name="question2"]:checked`);
     if (checkedAnswer1 && checkedAnswer2) {

@@ -2,13 +2,31 @@ import getElementFromTemplate from './getElementFromTemplate';
 import getHeader from './header';
 import footer from './footer';
 
-export default (state) => {
-  const statsScreen = getElementFromTemplate(`
-  <div class="result">
-    <h1>Победа!</h1>
+export default () => {
+
+  const statsData = {
+    title: `Победа!`,
+    results: [
+      {
+        resultNumber: 1,
+        gamePoints: 100,
+        totalResult: 900
+      },
+      {
+        resultNumber: 2,
+        totalResult: `fail`
+      },
+      {
+        resultNumber: 3,
+        gamePoints: 50,
+        totalResult: 950
+      }]
+  };
+
+  const template1 = `
     <table class="result__table">
       <tr>
-        <td class="result__number">1.</td>
+        <td class="result__number">${statsData.results[0].resultNumber}.</td>
         <td colspan="2">
           <ul class="stats">
             <li class="stats__result stats__result--wrong"></li>
@@ -23,8 +41,8 @@ export default (state) => {
             <li class="stats__result stats__result--unknown"></li>
           </ul>
         </td>
-        <td class="result__points">×&nbsp;100</td>
-        <td class="result__total">900</td>
+        <td class="result__points">×&nbsp;${statsData.results[0].gamePoints}</td>
+        <td class="result__total">${statsData.results[0].totalPoints}</td>
       </tr>
       <tr>
         <td></td>
@@ -50,10 +68,12 @@ export default (state) => {
       <tr>
         <td colspan="5" class="result__total  result__total--final">950</td>
       </tr>
-    </table>
+    </table>`;
+
+  const template2 = `
     <table class="result__table">
       <tr>
-        <td class="result__number">2.</td>
+        <td class="result__number">${statsData.results[1].resultNumber}.</td>
         <td>
           <ul class="stats">
             <li class="stats__result stats__result--wrong"></li>
@@ -69,10 +89,11 @@ export default (state) => {
           </ul>
         </td>
         <td class="result__total"></td>
-        <td class="result__total  result__total--final">fail</td>
+        <td class="result__total  result__total--final">${statsData.results[1].totalResult}</td>
       </tr>
-    </table>
-    <table class="result__table">
+    </table>`;
+
+  const template3 = `<table class="result__table">
       <tr>
         <td class="result__number">3.</td>
         <td colspan="2">
@@ -96,17 +117,22 @@ export default (state) => {
         <td></td>
         <td class="result__extra">Бонус за жизни:</td>
         <td class="result__extra">2&nbsp;<span class="stats__result stats__result--alive"></span></td>
-        <td class="result__points">×&nbsp;50</td>
-        <td class="result__total">100</td>
+        <td class="result__points">×&nbsp;${statsData.results[2].gamePoints}</td>
+        <td class="result__total">${statsData.results[2].totalResult}</td>
       </tr>
       <tr>
-        <td colspan="5" class="result__total  result__total--final">950</td>
+        <td colspan="5" class="result__total  result__total--final">${statsData.results[2].totalResult}</td>
       </tr>
-    </table>
+    </table>`;
+
+  const statsScreen = getElementFromTemplate(`
+  <div class="result">
+    <h1>${statsData.title}</h1>
+    ${template1}
+    ${template2}
+    ${template3}
   </div>
   ${footer}`);
-
-  // TODO create render stats function to render game results (answers array)
 
   statsScreen.insertBefore(getHeader(), statsScreen.firstChild);
 

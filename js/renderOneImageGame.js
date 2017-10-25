@@ -28,8 +28,8 @@ export default (question, onAnswer) => {
   // TODO add listeners
   const answers = gameScreen.querySelectorAll(`input[name=question1]`);
   Array.from(answers).forEach((answer) => {
-    answer.addEventListener(`click`, (e) => {
-      const checkedOption = gameScreen.querySelector('input[name=question1]:checked');
+    answer.addEventListener(`click`, () => {
+      const checkedOption = gameScreen.querySelector(`input[name=question1]:checked`);
       onAnswer(checkedOption.value === question.correctAnswer);
     });
   });
