@@ -5,7 +5,7 @@ const questions = [
   {
     questionType: questionType.THREE_IMAGES,
     title: `Найдите рисунок среди изображений?`,
-    images: [`http://placehold.it/304x455`, `http://placehold.it/304x455`, `http://placehold.it/304x455`],
+    images: [`http://6roundstudio.com/images/774b4422914295587d29bde164a.jpg?crc=4010533795`, `http://zoneonearts.com.au/wp-content/uploads/2015/03/zaria-forman-01.jpg`, `https://i.pinimg.com/736x/a0/c2/26/a0c2268b9f55a84f68f453ea46378beb--leaving-home-suitcases.jpg`],
     correctAnswer: 1
   },
   {
@@ -35,13 +35,13 @@ const questions = [
   {
     questionType: questionType.THREE_IMAGES,
     title: `Найдите рисунок среди изображений?`,
-    images: [`http://placehold.it/304x455`, `http://placehold.it/304x455`, `http://placehold.it/304x455`],
+    images: [`http://6roundstudio.com/images/774b4422914295587d29bde164a.jpg?crc=4010533795`, `http://zoneonearts.com.au/wp-content/uploads/2015/03/zaria-forman-01.jpg`, `https://i.pinimg.com/736x/a0/c2/26/a0c2268b9f55a84f68f453ea46378beb--leaving-home-suitcases.jpg`],
     correctAnswer: 1
   },
   {
     questionType: questionType.ONE_IMAGE,
     title: `Угадай, фото или рисунок?`,
-    image: `http://placehold.it/705x455`,
+    image: `https://k32.kn3.net/5C7060EC5.jpg`,
     correctAnswer: imageType.PHOTO
   },
   {
@@ -55,6 +55,12 @@ const questions = [
     title: `Угадайте для каждого изображения фото или рисунок?`,
     images: [`http://prod-images.exhibit-e.com/www_matthewmarks_com/Price_32449_The_Pair2.png`, `https://i.pinimg.com/736x/c8/ee/d7/c8eed73ad90c591439758a062a48feb0--staircase-bookshelf-staircase-design.jpg`],
     correctAnswer: [imageType.PAINT, imageType.PHOTO]
+  },
+  {
+    questionType: questionType.ONE_IMAGE,
+    title: `Угадай, фото или рисунок?`,
+    image: `https://k32.kn3.net/5C7060EC5.jpg`,
+    correctAnswer: imageType.PHOTO
   }
 ];
 

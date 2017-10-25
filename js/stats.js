@@ -9,8 +9,8 @@ export default () => {
     results: [
       {
         resultNumber: 1,
-        gamePoints: 100,
-        totalResult: 900
+        gamePoints: 900,
+        totalResult: 950
       },
       {
         resultNumber: 2,
@@ -18,7 +18,8 @@ export default () => {
       },
       {
         resultNumber: 3,
-        gamePoints: 50,
+        gamePoints: 900,
+        bonusPoints: 100,
         totalResult: 950
       }]
   };
@@ -41,8 +42,8 @@ export default () => {
             <li class="stats__result stats__result--unknown"></li>
           </ul>
         </td>
-        <td class="result__points">×&nbsp;${statsData.results[0].gamePoints}</td>
-        <td class="result__total">${statsData.results[0].totalPoints}</td>
+        <td class="result__points">×&nbsp;100</td>
+        <td class="result__total">${statsData.results[0].gamePoints}</td>
       </tr>
       <tr>
         <td></td>
@@ -66,7 +67,7 @@ export default () => {
         <td class="result__total">-100</td>
       </tr>
       <tr>
-        <td colspan="5" class="result__total  result__total--final">950</td>
+        <td colspan="5" class="result__total  result__total--final">${statsData.results[0].totalResult}</td>
       </tr>
     </table>`;
 
@@ -111,14 +112,14 @@ export default () => {
           </ul>
         </td>
         <td class="result__points">×&nbsp;100</td>
-        <td class="result__total">900</td>
+        <td class="result__total">${statsData.results[2].gamePoints}</td>
       </tr>
       <tr>
         <td></td>
         <td class="result__extra">Бонус за жизни:</td>
         <td class="result__extra">2&nbsp;<span class="stats__result stats__result--alive"></span></td>
-        <td class="result__points">×&nbsp;${statsData.results[2].gamePoints}</td>
-        <td class="result__total">${statsData.results[2].totalResult}</td>
+        <td class="result__points">×&nbsp;50</td>
+        <td class="result__total">${statsData.results[2].bonusPoints}</td>
       </tr>
       <tr>
         <td colspan="5" class="result__total  result__total--final">${statsData.results[2].totalResult}</td>
