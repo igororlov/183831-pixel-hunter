@@ -1,6 +1,4 @@
-import getElementFromTemplate from './getElementFromTemplate';
-
-class AbstractView {
+export default class AbstractView {
   /* возвращает строку, содержащую разметку */
   get template() {
     throw new Error(`template method must be overridden in children`);
@@ -8,13 +6,16 @@ class AbstractView {
 
   /* создавать DOM-элемент на основе шаблона, который возвращается геттером template */
   render() {
-    return getElementFromTemplate(this.template);
+    const d = document.createElement(`div`);
+    d.innerHTML = this.template;
+    return d.cloneNode(true);
   }
 
   /* метод, который будет добавлять обработчики событий. Метод по умолчанию ничего не делает.
      Если нужно обработать какое-то событие, то этот метод должен быть переопределён
      в наследнике с необходимой логикой */
   bind() {}
+  unbind() {}
 
   /* возвращает DOM-элемент, соответствующий представлению.
      Метод должен создавать DOM-элемент с помощью метода render, добавлять ему обработчики,
@@ -30,7 +31,4 @@ class AbstractView {
     this.bind();
     return this._element;
   }
-
 }
-
-export default AbstractView;
