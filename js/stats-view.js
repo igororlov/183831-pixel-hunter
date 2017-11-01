@@ -122,7 +122,9 @@ export default class StatsView extends AbstractView {
       ${footer}`;
   }
 
-  bind() {
-    this._element.insertBefore(getHeader(), this._element.firstChild); //
+  render() {
+    const _element = super.render();
+    _element.insertBefore(getHeader(), _element.firstChild);
+    return _element;
   }
 }

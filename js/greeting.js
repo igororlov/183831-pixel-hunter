@@ -4,6 +4,6 @@ import rules from './rules';
 
 const greetingView = new GreetingView();
 greetingView.onClickContinue = () => {
-  switchScreen(rules);
+  switchScreen(rules());
 };
 export default greetingView.element;

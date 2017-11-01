@@ -2,11 +2,15 @@ import answerCode from './answerCode';
 import questionType from './questionType';
 import getHeader from './header';
 import gameStats from './gameStats';
-import renderOneImageGame from './renderOneImageGame';
-import renderTwoImagesGame from './renderTwoImagesGame';
-import renderThreeImagesGame from './renderThreeImagesGame';
+// import renderOneImageGame from './game1';
+// import renderTwoImagesGame from './game2';
+// import renderThreeImagesGame from './game3';
 import switchScreen from './switchScreen';
 import stats from './stats';
+
+import Game1View from './game1-view';
+import Game2View from './game2-view';
+import Game3View from './game3-view';
 
 const renderGame = (game) => {
   let answered = false;
@@ -30,21 +34,25 @@ const renderGame = (game) => {
   };
 
   const question = game.questions[game.currentQuestion];
-  let gameScreen;
+  let GameViewClass;
+
   switch (question.questionType) {
     case questionType.ONE_IMAGE:
-      gameScreen = renderOneImageGame(question, onAnswer);
+      GameViewClass = Game1View;
       break;
     case questionType.TWO_IMAGES:
-      gameScreen = renderTwoImagesGame(question, onAnswer);
+      GameViewClass = Game2View;
       break;
     case questionType.THREE_IMAGES:
-      gameScreen = renderThreeImagesGame(question, onAnswer);
+      GameViewClass = Game3View;
       break;
     default:
       throw new Error(`Unknown question type`);
   }
 
+  const gameView = new GameViewClass(question);
+  gameView.onAnswer = onAnswer;
+  const gameScreen = gameView.element;
   gameScreen.insertBefore(getHeader(game), gameScreen.firstChild);
 
   const statsContainer = gameScreen.querySelector(`div.stats`);
