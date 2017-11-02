@@ -1,5 +1,5 @@
 import AbstractView from './abstract-view';
-import footer from './footer';
+import footer from '../footer';
 
 export default class Game2View extends AbstractView {
 
@@ -41,7 +41,9 @@ export default class Game2View extends AbstractView {
       const checkedAnswer1 = this._element.querySelector(`input[name="question1"]:checked`);
       const checkedAnswer2 = this._element.querySelector(`input[name="question2"]:checked`);
       if (checkedAnswer1 && checkedAnswer2) {
-        this.onAnswer(true);
+        const firstCorrect = this._question.correctAnswer[0] === checkedAnswer1.value;
+        const secondCorrect = this._question.correctAnswer[1] === checkedAnswer2.value;
+        this.onAnswer(firstCorrect && secondCorrect);
       }
     };
 

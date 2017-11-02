@@ -1,4 +1,4 @@
-import StatsView from './stats-view';
+import StatsView from './views/stats-view';
 
 export default () => {
   const statsData = {

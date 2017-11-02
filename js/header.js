@@ -1,6 +1,6 @@
 import switchScreen from './switchScreen';
 import greeting from './greeting';
-import HeaderView from './header-view';
+import HeaderView from './views/header-view';
 
 export default (game) => {
   const headerView = new HeaderView(game);

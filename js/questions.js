@@ -36,7 +36,7 @@ const questions = [
     questionType: questionType.THREE_IMAGES,
     title: `Найдите рисунок среди изображений?`,
     images: [`http://6roundstudio.com/images/774b4422914295587d29bde164a.jpg?crc=4010533795`, `http://zoneonearts.com.au/wp-content/uploads/2015/03/zaria-forman-01.jpg`, `https://i.pinimg.com/736x/a0/c2/26/a0c2268b9f55a84f68f453ea46378beb--leaving-home-suitcases.jpg`],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     questionType: questionType.ONE_IMAGE,

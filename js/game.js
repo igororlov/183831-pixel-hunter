@@ -8,9 +8,9 @@ import gameStats from './gameStats';
 import switchScreen from './switchScreen';
 import stats from './stats';
 
-import Game1View from './game1-view';
-import Game2View from './game2-view';
-import Game3View from './game3-view';
+import Game1View from './views/game1-view';
+import Game2View from './views/game2-view';
+import Game3View from './views/game3-view';
 
 const renderGame = (game) => {
   let answered = false;

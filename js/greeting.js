@@ -1,4 +1,4 @@
-import GreetingView from './greeting-view';
+import GreetingView from './views/greeting-view';
 import switchScreen from './switchScreen';
 import rules from './rules';
 

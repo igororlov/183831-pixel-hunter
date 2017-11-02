@@ -2,7 +2,7 @@ import switchScreen from './switchScreen';
 import renderGame from './game';
 import getGame from './state';
 
-import RulesView from './rules-view';
+import RulesView from './views/rules-view';
 
 export default () => {
   const rulesView = new RulesView();

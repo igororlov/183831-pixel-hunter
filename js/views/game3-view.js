@@ -1,5 +1,5 @@
 import AbstractView from './abstract-view';
-import footer from './footer';
+import footer from '../footer';
 
 export default class Game1View extends AbstractView {
 
@@ -13,7 +13,7 @@ export default class Game1View extends AbstractView {
     this._question.images.forEach((image, idx) => {
       const optionIdx = idx + 1;
       gameOptions.push(`
-      <div class="game__option">
+      <div class="game__option" data-value="${idx}">
         <img src="${image}" alt="Option ${optionIdx}" width="304" height="455">
       </div>`);
     });
@@ -32,7 +32,10 @@ export default class Game1View extends AbstractView {
   bind() {
     const answers = this._element.querySelectorAll(`.game__option`);
     Array.from(answers).forEach((answer) => {
-      answer.addEventListener(`click`, (() => this.onAnswer(true)), true, true);
+      answer.addEventListener(`click`, (e) => {
+        const answered = 1 * e.target.getAttribute(`data-value`);
+        this.onAnswer(this._question.correctAnswer === answered);
+      });
     });
   }
 
