@@ -25,7 +25,7 @@ export default (answers) => {
         throw new Error(`Invalid answer type: ${answer}`);
     }
   }
-  if (remainingLives <= 0) {
+  if (remainingLives < 0) {
     return -1;
   }
 

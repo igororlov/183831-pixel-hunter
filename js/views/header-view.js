@@ -2,9 +2,10 @@ import AbstractView from './abstract-view';
 
 export default class HeaderView extends AbstractView {
 
-  constructor(game) {
+  constructor(seconds, lives) {
     super();
-    this._game = game;
+    this._seconds = seconds;
+    this._lives = lives;
   }
 
   get template() {
@@ -17,12 +18,12 @@ export default class HeaderView extends AbstractView {
     </div>`;
 
     let headerTemplate;
-    if (this._game) {
-      const headerTimer = `<h1 class="game__timer">${this._game.seconds}</h1>`;
+    if (this._lives >= 0 && this._seconds >= 0) {
+      const headerTimer = `<h1 class="game__timer">${this._seconds}</h1>`;
       const headerLives = `
       <div class="game__lives">
-        ${new Array(3 - this._game.lives).fill(`<img src="img/heart__empty.svg" class="game__heart" alt="Life" width="32" height="32">`).join(``)}
-        ${new Array(this._game.lives).fill(`<img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">`).join(``)}
+        ${new Array(3 - this._lives).fill(`<img src="img/heart__empty.svg" class="game__heart" alt="Life" width="32" height="32">`).join(``)}
+        ${new Array(this._lives).fill(`<img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">`).join(``)}
       </div>`;
       headerTemplate = `<header class="header">${headerBack}${headerTimer}${headerLives}</header>`;
     } else {

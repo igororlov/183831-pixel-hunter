@@ -1,27 +1,6 @@
 import StatsView from './views/stats-view';
 
-export default () => {
-  const statsData = {
-    title: `Победа!`,
-    results: [
-      {
-        resultNumber: 1,
-        gamePoints: 900,
-        totalResult: 950
-      },
-      {
-        resultNumber: 2,
-        totalResult: `fail`
-      },
-      {
-        resultNumber: 3,
-        gamePoints: 900,
-        bonusPoints: 100,
-        totalResult: 950
-      }]
-  };
-
-  const statsView = new StatsView(statsData);
-
+export default (answers) => {
+  const statsView = new StatsView(answers);
   return statsView.element;
 };

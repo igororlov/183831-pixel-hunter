@@ -1,6 +1,6 @@
 const answerCode = {
-  TIMEOUT: -1,
-  WRONG: 0,
+  TIMEOUT: -2,
+  WRONG: -1,
   SLOW: 1,
   CORRECT: 2,
   FAST: 3
