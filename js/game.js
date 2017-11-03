@@ -89,7 +89,7 @@ const renderGame = (game) => {
       renderHeader(gameScreen, timer.value, game.lives);
       setTimeout(timerTick, 1000);
     }
-  }
+  };
   setTimeout(timerTick, 1000);
 
   const statsContainer = gameScreen.querySelector(`div.stats`);

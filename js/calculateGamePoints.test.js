@@ -16,7 +16,7 @@ describe(`Calculate Game Points: `, () => {
         answerCode.CORRECT,
         answerCode.CORRECT,
         answerCode.CORRECT,
-        answerCode.CORRECT,
+        answerCode.WRONG,
         answerCode.WRONG,
         answerCode.WRONG,
         answerCode.WRONG]));
