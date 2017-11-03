@@ -2,12 +2,8 @@ import answerCode from './answerCode';
 import questionType from './questionType';
 import getHeader from './header';
 import gameStats from './gameStats';
-// import renderOneImageGame from './game1';
-// import renderTwoImagesGame from './game2';
-// import renderThreeImagesGame from './game3';
 import switchScreen from './switchScreen';
 import stats from './stats';
-
 import Game1View from './views/game1-view';
 import Game2View from './views/game2-view';
 import Game3View from './views/game3-view';
